@@ -79,7 +79,7 @@ export default function CheckIn() {
       }
       const thisUserId = userId[0].id;
       // Insert into attendance table
-      const attendance = await sql`INSERT INTO attendances (session_id, user_id, check_in_time) VALUES (${thisSessionId}, ${thisUserId}, ${Date.now()}) RETURNING id;`;
+      const attendance = await sql`INSERT INTO attendances (session_id, student_id, check_in_time) VALUES (${thisSessionId}, ${thisUserId}, ${Date.now()}) RETURNING id;`;
       if (attendance.length === 0) {
         return ("Failed to insert attendance record.");
       }
